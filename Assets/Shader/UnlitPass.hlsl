@@ -4,7 +4,9 @@
 
 #include "Assets/Shader/UnlitPassCommon.hlsl"
 
-float4 _BaseColor;
+CBUFFER_START(UnityPreMaterial)
+    float4 _BaseColor;
+CBUFFER_END
 
 float4 UnlitPassVertex(float4 positionOS : POSITION) : SV_POSITION
 {

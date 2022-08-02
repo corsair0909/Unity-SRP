@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8d54229-8898-4036-922d-90fc54a12506" name="Changes" comment="" />
+    <list default="true" id="e8d54229-8898-4036-922d-90fc54a12506" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/PerObjectMaterialProp.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/PerObjectMaterialProp.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Shader/Material.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Shader/Material/Unlit_UnlitShader 1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Shader/Material/Unlit_UnlitShader 1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Shader/Material/Unlit_UnlitShader 2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Shader/Material/Unlit_UnlitShader 2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Shader/Material/Unlit_UnlitShader.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Shader/Material/Unlit_UnlitShader.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SRP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SRP/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RenderPipeline/MyPipeline.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RenderPipeline/MyPipeline.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RenderPipeline/MyRenderPipeline.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RenderPipeline/MyRenderPipeline.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shader/UnlitPass.hlsl" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader/UnlitPass.hlsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shader/UnlitPassCommon.hlsl" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader/UnlitPassCommon.hlsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shader/UnlitPassInput.hlsl" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader/UnlitPassInput.hlsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shader/UnlitShader.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader/UnlitShader.shader" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shader/Unlit_UnlitShader.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shader/Unlit_UnlitShader.mat.meta" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,6 +32,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/RenderPipeline/CameraRender.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/RenderPipeline/CameraRenderEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/RenderPipeline/MyPipeline.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PerObjectMaterialProp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Shader/UnlitPass.hlsl" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Shader/UnlitPassCommon.hlsl" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Shader/UnlitPassInput.hlsl" root0="FORCE_HIGHLIGHTING" />
@@ -85,6 +107,7 @@
       <option name="presentableId" value="Default" />
       <updated>1659407191570</updated>
       <workItem from="1659407199965" duration="14552000" />
+      <workItem from="1659450938488" duration="2366000" />
     </task>
     <servers />
   </component>

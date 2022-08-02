@@ -2,7 +2,7 @@ Shader "Unlit/CustomRPShader"
 {
     Properties
     {
-        _BaseColor("Color",Color) = (1.0,1.0,1.0,1.0)
+        //_BaseColor("Color",Color) = (1.0,1.0,1.0,1.0)
     }
     SubShader
     {
@@ -11,6 +11,7 @@ Shader "Unlit/CustomRPShader"
         {
             HLSLPROGRAM
             #include "Assets/Shader/UnlitPass.hlsl"
+            #pragma multi_compile_instancing //GPU Instancing
             #pragma vertex UnlitPassVertex
             #pragma fragment UnlitPassFragment
             ENDHLSL

@@ -7,6 +7,7 @@ using UnityEngine.Rendering;
 [CreateAssetMenu(menuName = "Rendering/MyPipeline",fileName = "MyPipelineAsset")]
 public class MyRenderPipeline : RenderPipelineAsset//管线资产父类
 {
+
     //返回管线的实例对象
     protected override RenderPipeline CreatePipeline()
     {
