@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class CameraRender
+public partial class CameraRender
 {
     private ScriptableRenderContext _context;
     private Camera _camera;
@@ -9,21 +9,13 @@ public class CameraRender
     private CommandBuffer _buffer = new CommandBuffer() { name = BufferName };
     private CullingResults _results;
     private ShaderTagId _shaderID = new ShaderTagId("SRPDefaultUnlit");
-
-    private static Material _errorMaterial;
-    private static ShaderTagId[] legacyShaderTagIds =
-            {new ShaderTagId("Always"), 
-            new ShaderTagId("ForwardBase"), 
-            new ShaderTagId("PrepassBase"), 
-            new ShaderTagId("Vertex"),
-            new ShaderTagId("VertexLMRGBM"),
-            new ShaderTagId("VertexLM")};
-    
     public void Render(ScriptableRenderContext context,Camera camera)
     {
         this._camera = camera;
         this._context = context;
-
+        
+        PerpareCamera();
+        DrawUGUI();
         if (!Cull())
         {
             return;
@@ -32,6 +24,7 @@ public class CameraRender
         SetUp();
         DrawunSupportGemoetry();
         DrawVisibleGeometry();
+        DrawGizmos();
         Submit();
     }
     void DrawVisibleGeometry()
@@ -52,38 +45,27 @@ public class CameraRender
         _context.DrawRenderers(_results,ref drawSetting,ref filterSetting);
     }
 
-    void DrawunSupportGemoetry()
-    {
-        if (!_errorMaterial)
-        {
-            _errorMaterial = new Material(Shader.Find("Hidden/InternalErrorShader"));
-        }
-        //overrideMaterial 设置此组所有的渲染器shader
-        var drawSetting = new DrawingSettings(legacyShaderTagIds[0], 
-            new SortingSettings(_camera){criteria = SortingCriteria.CommonOpaque})
-            {overrideMaterial = _errorMaterial};
-        //defaultValue：不进行筛选的默认值
-        var filterSetting = FilteringSettings.defaultValue;
-        for (int i = 1; i < legacyShaderTagIds.Length; i++)
-        {
-            drawSetting.SetShaderPassName(i,legacyShaderTagIds[i]);
-        }
-        _context.DrawRenderers(_results,ref drawSetting,ref filterSetting);
-    }
+
     
     void SetUp()
     {
-        _buffer.ClearRenderTarget(true,false,Color.black); //清除渲染目标
         _context.SetupCameraProperties(_camera);//设置相机视图投影矩阵
         
-        _buffer.BeginSample(BufferName); //commanderBuffer开始
+        //TODO 没明白啥意思
+        CameraClearFlags flags = _camera.clearFlags;
+        _buffer.ClearRenderTarget(flags<=CameraClearFlags.Depth,
+                                    flags==CameraClearFlags.Color,
+                                    flags == CameraClearFlags.Color?
+                                    _camera.backgroundColor.linear:Color.clear); //清除渲染目标
+        
+        _buffer.BeginSample(SampleName); //commanderBuffer开始
         ExecuteCommanderBuffer();
 
     }    
     
     void Submit()
     {
-        _buffer.EndSample(BufferName);//commanderBuffer结束
+        _buffer.EndSample(SampleName);//commanderBuffer结束
         ExecuteCommanderBuffer();
         _context.Submit();
     }
