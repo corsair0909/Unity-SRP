@@ -1,18 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
-public class MyPipeline : MonoBehaviour
+public class MyPipeline : RenderPipeline//扩展抽象类，可以实现IRenderPipeline
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void Render(ScriptableRenderContext context, Camera[] cameras)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        throw new System.NotImplementedException();
     }
 }
