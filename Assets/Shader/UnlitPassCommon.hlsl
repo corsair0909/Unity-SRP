@@ -1,0 +1,5 @@
+#ifndef CUSTOM_UNLIT_PASS_INPUT_INCLUDE
+#define CUSTOM_UNLIT_PASS_INPUT_INCLUDE
+#endif
+
+float4x4 unity_ObjectToWorld;
