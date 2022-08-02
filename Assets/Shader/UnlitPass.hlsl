@@ -4,12 +4,15 @@
 
 #include "Assets/Shader/UnlitPassCommon.hlsl"
 
+float4 _BaseColor;
+
 float4 UnlitPassVertex(float4 positionOS : POSITION) : SV_POSITION
 {
-    float3 positionWS = TransformObjToWorld(positionOS.xyz);
+    //方法来自SpaceTransforms.hlsl
+    float3 positionWS = TransformObjectToWorld(positionOS);
     return TransformWorldToHClip(positionWS);
 }
-float4 UnlitPassFragment() : SV_Target
+float4 UnlitPassFragment() : SV_TARGET
 {
-    return 0.0;
+    return _BaseColor;
 }
