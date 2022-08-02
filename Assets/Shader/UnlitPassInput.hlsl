@@ -1,12 +1,12 @@
-#ifndef CUSTOM_UNLIT_PASS_INCLUDE
-#define CUSTOM_UNLIT_PASS_INCLUDE
+#ifndef CUSTOM_UNLIT_PASS_INPUT_INCLUDE
+#define CUSTOM_UNLIT_PASS_INPUT_INCLUDE
 #endif
 
-float4 UnlitPassVertex(float4 positionOS : POSITION) : SV_POSITION
-{
-    return float4(positionOS.xyz,1);
-}
-float4 UnlitPassFragment() : SV_Target
-{
-    return 0.0;
-}
+float4x4 unity_ObjectToWorld;
+float4x4 unity_WorldToObject;
+//包含不再需要的转换信息
+float4 unity_WorldTransformParams;
+
+float4x4 unity_MatrixVP; // 视图投影矩阵，它使unity_ObjectToWorld矩阵可用
+float4x4 unity_MatrixV;
+float4x4 glstate_matrix_projection;//P矩阵
