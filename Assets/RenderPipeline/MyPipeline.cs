@@ -8,6 +8,7 @@ public class MyPipeline : RenderPipeline//扩展抽象类，可以实现IRenderP
     
     public MyPipeline()
     {
+        //在调用产生实例时开启SRP Batcher
         GraphicsSettings.useScriptableRenderPipelineBatching = true;
     }
     protected override void Render(ScriptableRenderContext context, Camera[] cameras)
