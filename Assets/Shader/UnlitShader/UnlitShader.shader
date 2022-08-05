@@ -1,4 +1,4 @@
-Shader "Unlit/CustomRPShader"
+Shader "Custom/UnlitShader"
 {
     Properties
     {
@@ -67,7 +67,7 @@ Shader "Unlit/CustomRPShader"
                 float3 positionWS = TransformObjectToWorld(input.positionOS);
                 o.positionOS = TransformWorldToHClip(positionWS);
                 float4 baseUVST = UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial,_MainTex_ST);
-                o.UV = input.baseUV * baseUVST.xy+baseUVST.zw; 
+                o.UV = input.baseUV * baseUVST.xy+baseUVST.zw;
                 return o;
             }
 

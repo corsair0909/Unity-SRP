@@ -8,9 +8,11 @@ using UnityEngine.Rendering;
 public class MyRenderPipeline : RenderPipelineAsset//管线资产父类
 {
 
+    [SerializeField]
+    private bool useDynamicBatching,useGPUInstancBatching,useSRPBatching;
     //返回管线的实例对象
     protected override RenderPipeline CreatePipeline()
     {
-        return new MyPipeline();
+        return new MyPipeline(useDynamicBatching,useGPUInstancBatching,useSRPBatching);
     }
 }

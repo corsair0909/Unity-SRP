@@ -1,20 +1,10 @@
-#ifndef CUSTOM_UNLIT_PASS_INCLUDE
-#define CUSTOM_UNLIT_PASS_INCLUDE
+#ifndef CUSTOM_SURFACE_INCLUDE
+#define CUSTOM_SURFACE_INCLUDE
+struct Surface
+{
+    float3 normal;
+    float3 color;
+    float alpha;
+};
+
 #endif
-
-//#include "Assets/Shader/UnlitPassCommon.hlsl"
-
-// CBUFFER_START(UnityPreMaterial)
-//     float4 _BaseColor;
-// CBUFFER_END
-
-// float4 UnlitPassVertex(float4 positionOS : POSITION) : SV_POSITION
-// {
-//     //方法来自SpaceTransforms.hlsl
-//     float3 positionWS = TransformObjectToWorld(positionOS);
-//     return TransformWorldToHClip(positionWS);
-// }
-// float4 UnlitPassFragment() : SV_TARGET
-// {
-//     return _BaseColor;
-// }

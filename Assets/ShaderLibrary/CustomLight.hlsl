@@ -9,7 +9,7 @@ float3 _DirectionalLightDirections[MAX_DIRECTIONAL_LIGHT_COUNT];
 
 CBUFFER_END
 
-struct CustomLight
+struct CLight
 {
     float3 Color;
     float3 Dircetion;
@@ -20,9 +20,9 @@ int GetDirectionLightCount()
     return _DirectionalLightCount;
 }
 
-CustomLight GetDirectionalLight(int index)
+CLight GetDirectionalLight(int index)
 {
-    CustomLight light;
+    CLight light;
     light.Color = _DirectionalLightColors[index];
     light.Dircetion = _DirectionalLightDirections[index];
     return light;

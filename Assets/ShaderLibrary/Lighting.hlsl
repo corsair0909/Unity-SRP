@@ -1,10 +1,21 @@
-#ifndef CUSTOM_SURFACE_INCLUDE
-#define CUSTOM_SURFACE_INCLUDE
+#ifndef CUSTOM_LIGHTING_INCLUDE
+#define CUSTOM_LIGHTING_INCLUDE
 
-struct Surface
+#include "Assets/ShaderLibrary/Surface.hlsl"
+#include "Assets/ShaderLibrary/CustomLight.hlsl"
+
+float3 GetIncomingLight(Surface surface,CLight light)
 {
-    float3 normal;
-    float3 color;
-    float alpha;
-};
+    return saturate(dot(surface.normal,light.Dircetion)) * light.Color;
+}
+float3 GetLighting(Surface surface)
+{
+   float3 LightColor = 0;
+   for (int i = 0; i < GetDirectionLightCount(); ++i)
+   {
+       LightColor += GetIncomingLight(surface,GetDirectionalLight(i));
+   }
+    return LightColor;
+}
+
 #endif

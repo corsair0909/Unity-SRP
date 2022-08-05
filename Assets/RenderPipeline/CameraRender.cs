@@ -8,8 +8,11 @@ public partial class CameraRender
     private const string BufferName = "Render Camera";
     private CommandBuffer _buffer = new CommandBuffer() { name = BufferName };
     private CullingResults _results;
-    private ShaderTagId _shaderID = new ShaderTagId("SRPDefaultUnlit");
-    public void Render(ScriptableRenderContext context,Camera camera)
+    private Lighting _lighting = new Lighting();
+    static ShaderTagId //构造函数中传递的字符对应 "LightMode"类型，
+        _unlitShaderTagId = new ShaderTagId("SRPDefaultUnlit"),
+        _ligShaderTagId = new ShaderTagId("CustomLit");
+    public void Render(ScriptableRenderContext context,Camera camera,bool useDynamicBatching,bool useGPUInstancBatching)
     {
         this._camera = camera;
         this._context = context;
@@ -22,17 +25,25 @@ public partial class CameraRender
         }
         
         SetUp();
+        _lighting.SetUp(context,_results);
         DrawunSupportGemoetry();
-        DrawVisibleGeometry();
+        DrawVisibleGeometry(useDynamicBatching,useGPUInstancBatching);
         DrawGizmos();
         Submit();
     }
-    void DrawVisibleGeometry()
+    void DrawVisibleGeometry(bool useDynamicBatching,bool useGPUInstancBatching)
     {
         //绘制不透明物体
+        
+        //排序参数设定
         var sortSetting = new SortingSettings(){criteria = SortingCriteria.CommonOpaque};
-        var drawSetting = new DrawingSettings(_shaderID,sortSetting);
+        //绘制参数设定
+        var drawSetting = new DrawingSettings(_unlitShaderTagId,sortSetting)
+            {enableDynamicBatching = useDynamicBatching,enableInstancing = useGPUInstancBatching};
+        drawSetting.SetShaderPassName(1,_ligShaderTagId);
+        //过滤参数设定,传入整数标识队列
         var filterSetting = new FilteringSettings(RenderQueueRange.opaque);
+        //绘制方法 cull参数、绘制参数、过滤参数
         _context.DrawRenderers(_results,ref drawSetting,ref filterSetting);
         
         //绘制天空盒
