@@ -3,6 +3,7 @@
 #endif
 
 #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
+#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/CommonMaterial.hlsl"
 
 #include "Assets/Shader/UnlitPassInput.hlsl"
 //SpaceTransforms.hlsl代码中没有unity_ObjectToWorld

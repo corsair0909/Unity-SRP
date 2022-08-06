@@ -8,6 +8,7 @@ CBUFFER_START(UnityPerDraw)
     float4 LODFade;
     //包含不再需要的转换信息
     real4 unity_WorldTransformParams;
+    float3 _WorldSpaceCameraPos;
 CBUFFER_END
 
 float4x4 unity_MatrixVP; // 视图投影矩阵，它使unity_ObjectToWorld矩阵可用

@@ -27,8 +27,11 @@ Material:
     - _Clipping: 0
     - _CutOff: 0
     - _DstBlend: 0
+    - _Metallic: 0
+    - _PermulAlpha: 0
+    - _Smoothness: 0.16
     - _SrcBlend: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 0.56078434}
   m_BuildTextureStacks: []

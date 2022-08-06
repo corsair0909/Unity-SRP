@@ -87,4 +87,5 @@ Shader "Custom/UnlitShader"
             ENDHLSL
         }
     }
+    CustomEditor "CustomShaderGUI"
 }
