@@ -10,6 +10,8 @@ public class Lighting
 
     private const int maxDirLightCount = 4;
 
+    private Shadows _shadows = new Shadows();
+
     private static int
         //添加多光源支持，
         //Unity为着色器的每个属性名称都会分配一个整个游戏中唯一的整数类型ID
@@ -22,11 +24,13 @@ public class Lighting
         DirLightColors = new Vector4[maxDirLightCount],
         DirLightDirectionals = new Vector4[maxDirLightCount];
 
-    public void SetUp(ScriptableRenderContext context,CullingResults results)
+    public void SetUp(ScriptableRenderContext context,CullingResults results,ShadowSetting shadowSetting)
     {
         this._results = results;
         _buffer.BeginSample(_bufferName);
+        _shadows.Setup(context,results,shadowSetting);
         SetVisibiletyLight();
+        _shadows.Render();
         _buffer.EndSample(_bufferName);
         context.ExecuteCommandBuffer(_buffer);
         _buffer.Clear();
@@ -72,5 +76,11 @@ public class Lighting
         DirLightColors[index] = visibleLight.finalColor;
         //visibleLight.localToWorldMatrix.GetColumn(2) == transform.forward. 前向矢量是矩阵第三列
         DirLightDirectionals[index] =-visibleLight.localToWorldMatrix.GetColumn(2);
+        _shadows.ReserveDirectionalShadows(visibleLight.light,index);
+    }
+
+    public void Cleanup()
+    {
+        _shadows.Cleanup();
     }
 }

@@ -10,9 +10,12 @@ public class MyRenderPipeline : RenderPipelineAsset//管线资产父类
 
     [SerializeField]
     private bool useDynamicBatching,useGPUInstancBatching,useSRPBatching;
+
+    //
+    [SerializeField] private ShadowSetting Shadows = default;
     //返回管线的实例对象
     protected override RenderPipeline CreatePipeline()
     {
-        return new MyPipeline(useDynamicBatching,useGPUInstancBatching,useSRPBatching);
+        return new MyPipeline(useDynamicBatching,useGPUInstancBatching,useSRPBatching,Shadows);
     }
 }

@@ -12,23 +12,27 @@ public partial class CameraRender
     static ShaderTagId //构造函数中传递的字符对应 "LightMode"类型，
         _unlitShaderTagId = new ShaderTagId("SRPDefaultUnlit"),
         _ligShaderTagId = new ShaderTagId("CustomLit");
-    public void Render(ScriptableRenderContext context,Camera camera,bool useDynamicBatching,bool useGPUInstancBatching)
+    public void Render(ScriptableRenderContext context,Camera camera,bool useDynamicBatching,bool useGPUInstancBatching,
+        ShadowSetting shadowSettings)
     {
         this._camera = camera;
         this._context = context;
         
         PerpareCamera();
         DrawUGUI();
-        if (!Cull())
+        if (!Cull(shadowSettings.maxDistance))
         {
             return;
         }
-        
+        _buffer.BeginSample(BufferName);
+        ExecuteCommanderBuffer();
+        _lighting.SetUp(context,_results,shadowSettings);
+        _buffer.EndSample(BufferName);
         SetUp();
-        _lighting.SetUp(context,_results);
         DrawunSupportGemoetry();
         DrawVisibleGeometry(useDynamicBatching,useGPUInstancBatching);
         DrawGizmos();
+        _lighting.Cleanup();
         Submit();
     }
     void DrawVisibleGeometry(bool useDynamicBatching,bool useGPUInstancBatching)
@@ -87,11 +91,13 @@ public partial class CameraRender
         _buffer.Clear();
     }
     
-    bool Cull()
+    bool Cull(float maxShadowDistance)
     {
         //获取剔除参数
         if (_camera.TryGetCullingParameters(out ScriptableCullingParameters parameters))
         {
+            //设置最大阴影距离，相机看不到的阴影无需渲染，在远平面和阴影距离之间选择小的距离
+            parameters.shadowDistance = Mathf.Min(maxShadowDistance,_camera.farClipPlane);
             _results = _context.Cull(ref parameters);
             return true;
         }

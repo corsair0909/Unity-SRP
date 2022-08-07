@@ -5,12 +5,15 @@ using UnityEngine.Experimental.Rendering;
 public class MyPipeline : RenderPipeline//扩展抽象类，可以实现IRenderPipeline
 {
     private bool useDynamicBatching,useGPUInstancBatching;
+    private ShadowSetting _shadowSetting;
     private CameraRender _render = new CameraRender();//渲染类
     
-    public MyPipeline(bool useDynamicBatching,bool useGPUInstancBatching,bool useSRPBatching)
+    public MyPipeline(bool useDynamicBatching,bool useGPUInstancBatching,bool useSRPBatching,
+        ShadowSetting shadow)
     {
         this.useDynamicBatching = useDynamicBatching;
         this.useGPUInstancBatching = useGPUInstancBatching;
+        this._shadowSetting = shadow;
         //在调用产生实例时开启SRP Batcher
         GraphicsSettings.useScriptableRenderPipelineBatching = useSRPBatching;
         //Unity默认不会将灯光转换到线性空间下，需要手动开启
@@ -20,7 +23,7 @@ public class MyPipeline : RenderPipeline//扩展抽象类，可以实现IRenderP
     {
         foreach (Camera cam in cameras)
         {
-            _render.Render(context,cam,useDynamicBatching,useGPUInstancBatching);
+            _render.Render(context,cam,useDynamicBatching,useGPUInstancBatching,_shadowSetting);
         }
     }
 
