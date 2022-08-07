@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e8d54229-8898-4036-922d-90fc54a12506" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Editor.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Editor/CustomShaderGUI.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Editor/CustomShaderGUI.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ShaderLibrary/BRDF.hlsl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ShaderLibrary/BRDF.hlsl.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SRP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SRP/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader/Custom_LitShader.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader/Custom_LitShader.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader/LitShader.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader/LitShader.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader/UnlitPassCommon.hlsl" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader/UnlitPassCommon.hlsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader/UnlitPassInput.hlsl" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader/UnlitPassInput.hlsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader/UnlitShader/UnlitShader.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader/UnlitShader/UnlitShader.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShaderLibrary/Lighting.hlsl" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShaderLibrary/Lighting.hlsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShaderLibrary/Surface.hlsl" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShaderLibrary/Surface.hlsl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,6 +112,7 @@
       <workItem from="1659677806658" duration="8698000" />
       <workItem from="1659707854936" duration="1127000" />
       <workItem from="1659771758862" duration="7696000" />
+      <workItem from="1659791321248" duration="1465000" />
     </task>
     <servers />
   </component>
